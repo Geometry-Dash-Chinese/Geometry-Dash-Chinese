@@ -5,9 +5,9 @@ use Symfony\Component\Console\Input\ArgvInput;
 
 define('LARAVEL_START', microtime(true));
 
-require __DIR__.'/vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
-$status = (require_once __DIR__.'/bootstrap/app.php')
-    ->handleCommand(new ArgvInput);
+$status = (require_once __DIR__ . '/bootstrap/app.php')
+	->handleCommand(new ArgvInput);
 
 exit($status);
