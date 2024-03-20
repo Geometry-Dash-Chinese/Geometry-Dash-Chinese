@@ -1,12 +1,17 @@
 <?php
 
-use App\Http\Controllers\GeometryDashProxyService;
+use App\Http\Controllers\GeometryDashProxyController;
 use Illuminate\Support\Facades\Route;
 
 Route::group([
 	'domain' => 'dl.geometrydashchinese.com',
-	'as' => 'GeometryDashProxy.',
-	'excluded_middleware' => ['web']
+	'as' => 'GeometryDashProxy.'
 ], function () {
-	Route::post('/{path}', [GeometryDashProxyService::class, 'proxy'])->name('proxy');
+	Route::inertia('/', 'GeometryDashProxy/Home')->name('home');
+
+	Route::group([
+		'excluded_middleware' => ['web']
+	], function () {
+		Route::post('/{path}', [GeometryDashProxyController::class, 'proxy'])->name('proxy');
+	});
 });
