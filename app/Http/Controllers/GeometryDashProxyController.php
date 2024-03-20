@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Services\ProxyService;
 use Illuminate\Http\Request;
 
-class GeometryDashProxyService extends Controller
+class GeometryDashProxyController extends Controller
 {
 	public function proxy(Request $request)
 	{
