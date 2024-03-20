@@ -6,6 +6,8 @@ import NewgroundsProxy from '@/assets/NewgroundsProxy.png'
 import { useAppStore } from '@/scripts/core/stores.ts'
 import { darkTheme, dateZhCN, type MenuOption, NButton, NImage, zhCN } from 'naive-ui'
 
+useFavicon(GeometryDashChinese)
+
 const appStore = useAppStore()
 
 const theme = computed(() => {
