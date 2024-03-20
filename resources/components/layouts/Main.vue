@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import GDCN from '@/assets/GDCN.png'
-import GDCS from '@/assets/GDCS.png'
-import GDProxy from '@/assets/GDProxy.png'
-import NGProxy from '@/assets/NGProxy.png'
+import GeometryDashChinese from '@/assets/GeometryDashChinese.png'
+import GeometryDashChineseServer from '@/assets/GeometryDashChineseServer.png'
+import GeometryDashProxy from '@/assets/GeometryDashProxy.png'
+import NewgroundsProxy from '@/assets/NewgroundsProxy.png'
 import { useAppStore } from '@/scripts/core/stores.ts'
 import { darkTheme, dateZhCN, type MenuOption, NButton, NImage, zhCN } from 'naive-ui'
 
@@ -28,7 +28,7 @@ const menus: MenuOption[][] = [
 			key: 'GDCN',
 			icon: () => h(NImage, {
 				class: 'logo',
-				src: GDCN
+				src: GeometryDashChinese
 			})
 		}
 	],
@@ -43,7 +43,7 @@ const menus: MenuOption[][] = [
 			key: 'GDCS',
 			icon: () => h(NImage, {
 				class: 'logo',
-				src: GDCS
+				src: GeometryDashChineseServer
 			})
 		},
 		{
@@ -56,7 +56,7 @@ const menus: MenuOption[][] = [
 			key: 'GDProxy',
 			icon: () => h(NImage, {
 				class: 'logo',
-				src: GDProxy
+				src: GeometryDashProxy
 			})
 		},
 		{
@@ -69,7 +69,7 @@ const menus: MenuOption[][] = [
 			key: 'NGProxy',
 			icon: () => h(NImage, {
 				class: 'logo',
-				src: NGProxy
+				src: NewgroundsProxy
 			})
 		}
 	]
