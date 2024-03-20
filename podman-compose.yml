@@ -1,8 +1,0 @@
-services:
-    database:
-        image: postgres:alpine
-        ports:
-            - 60002:5432
-        environment:
-            POSTGRES_PASSWORD: 123456
-            POSTGRES_DB: gdcn
