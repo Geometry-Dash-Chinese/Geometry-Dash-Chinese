@@ -21,14 +21,14 @@
 		"noFallthroughCasesInSwitch": true,
 		"paths": {
 			"@/*": [
-				"./src/*"
+				"./resources/*"
 			]
 		}
 	},
 	"include": [
-		"src/**/*.ts",
-		"src/**/*.tsx",
-		"src/**/*.vue",
+		"resources/**/*.ts",
+		"resources/**/*.tsx",
+		"resources/**/*.vue",
 		"auto-imports.d.ts",
 		"components.d.ts"
 	],
