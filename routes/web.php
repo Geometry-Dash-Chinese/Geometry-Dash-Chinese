@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GeometryDashChineseController;
 use Illuminate\Support\Facades\Route;
 
 require_once 'GeometryDashChineseServer.php';
@@ -10,5 +11,5 @@ Route::group([
 	'domain' => 'geometrydashchinese.com',
 	'as' => 'GeometryDashChinese.'
 ], function () {
-	Route::inertia('/', 'Home')->name('home');
+	Route::get('/', [GeometryDashChineseController::class, 'renderHome'])->name('home');
 });

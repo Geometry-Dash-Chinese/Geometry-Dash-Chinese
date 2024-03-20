@@ -4,9 +4,19 @@ import GeometryDashChineseServer from '@/assets/GeometryDashChineseServer.png'
 import GeometryDashProxy from '@/assets/GeometryDashProxy.png'
 import NewgroundsProxy from '@/assets/NewgroundsProxy.png'
 import { useAppStore } from '@/scripts/core/stores.ts'
+import { usePage } from '@inertiajs/vue3'
 import { darkTheme, dateZhCN, type MenuOption, NButton, NImage, zhCN } from 'naive-ui'
 
 useFavicon(GeometryDashChinese)
+
+const $page = usePage<{
+	readonly links: {
+		readonly GeometryDashChinese: string
+		readonly GeometryDashChineseServer: string
+		readonly GeometryDashProxy: string
+		readonly NewgroundsProxy: string
+	}
+}>()
 
 const appStore = useAppStore()
 
@@ -24,7 +34,7 @@ const menus: MenuOption[][] = [
 			label: () => h(NButton, {
 				text: true,
 				tag: 'a',
-				href: 'https://geometrydashchinese.com',
+				href: $page.props.links.GeometryDashChinese,
 				focusable: false
 			}, () => 'Geometry Dash Chinese'),
 			key: 'GDCN',
@@ -39,7 +49,7 @@ const menus: MenuOption[][] = [
 			label: () => h(NButton, {
 				text: true,
 				tag: 'a',
-				href: 'https://gf.geometrydashchinese.com',
+				href: $page.props.links.GeometryDashChineseServer,
 				focusable: false
 			}, () => 'Geometry Dash Chinese Server'),
 			key: 'GDCS',
@@ -52,7 +62,7 @@ const menus: MenuOption[][] = [
 			label: () => h(NButton, {
 				text: true,
 				tag: 'a',
-				href: 'https://dl.geometrydashchinese.com',
+				href: $page.props.links.GeometryDashProxy,
 				focusable: false
 			}, () => 'Geometry Dash Proxy'),
 			key: 'GDProxy',
@@ -65,7 +75,7 @@ const menus: MenuOption[][] = [
 			label: () => h(NButton, {
 				text: true,
 				tag: 'a',
-				href: 'https://ng.geometrydashchinese.com',
+				href: $page.props.links.NewgroundsProxy,
 				focusable: false
 			}, () => 'Newgrounds Proxy'),
 			key: 'NGProxy',
