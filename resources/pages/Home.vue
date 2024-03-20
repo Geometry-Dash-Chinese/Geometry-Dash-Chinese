@@ -1,13 +1,9 @@
 <script lang="ts">
-import GeometryDashProxyLayout from '@/components/layouts/GeometryDashProxy.vue'
+import MainLayout from '@/components/layouts/Main.vue'
 
 export default {
-	layout: GeometryDashProxyLayout
+	layout: MainLayout
 }
-</script>
-
-<script lang="ts" setup>
-
 </script>
 
 <template>
