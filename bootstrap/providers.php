@@ -1,3 +1,5 @@
 <?php
 
-return [];
+return [
+    App\Providers\GeometryDashChineseCustomizeProvider::class
+];
