@@ -8,13 +8,19 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     NA: typeof import('naive-ui')['NA']
+    NAlert: typeof import('naive-ui')['NAlert']
     NButton: typeof import('naive-ui')['NButton']
+    NCard: typeof import('naive-ui')['NCard']
     NConfigProvider: typeof import('naive-ui')['NConfigProvider']
     NDialogProvider: typeof import('naive-ui')['NDialogProvider']
     NDivider: typeof import('naive-ui')['NDivider']
     NEmpty: typeof import('naive-ui')['NEmpty']
     NFlex: typeof import('naive-ui')['NFlex']
+    NForm: typeof import('naive-ui')['NForm']
+    NFormItem: typeof import('naive-ui')['NFormItem']
+    NH2: typeof import('naive-ui')['NH2']
     NImage: typeof import('naive-ui')['NImage']
+    NInput: typeof import('naive-ui')['NInput']
     NLayout: typeof import('naive-ui')['NLayout']
     NLayoutContent: typeof import('naive-ui')['NLayoutContent']
     NLayoutFooter: typeof import('naive-ui')['NLayoutFooter']
@@ -22,8 +28,10 @@ declare module 'vue' {
     NLoadingBarProvider: typeof import('naive-ui')['NLoadingBarProvider']
     NMenu: typeof import('naive-ui')['NMenu']
     NMessageProvider: typeof import('naive-ui')['NMessageProvider']
+    NModalProvider: typeof import('naive-ui')['NModalProvider']
     NNotificationProvider: typeof import('naive-ui')['NNotificationProvider']
     NResult: typeof import('naive-ui')['NResult']
+    NTag: typeof import('naive-ui')['NTag']
     NText: typeof import('naive-ui')['NText']
   }
 }

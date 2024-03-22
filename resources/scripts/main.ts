@@ -15,6 +15,10 @@ await createInertiaApp({
 
 		return await loader()
 	},
+	title: (() => {
+		const title = document.title
+		return (name: string) => `[${title}] ${name}`
+	})(),
 	setup({ el, App, props, plugin }) {
 		const app = createApp({
 			render: () => h(App, props)

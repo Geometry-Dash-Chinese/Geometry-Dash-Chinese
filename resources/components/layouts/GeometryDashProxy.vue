@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import Main from '@/components/layouts/Main.vue'
+import GeometryDashChineseLayout from '@/components/layouts/GeometryDashChinese.vue'
 </script>
 
 <template>
-	<Main>
+	<GeometryDashChineseLayout>
 		<slot/>
-	</Main>
+	</GeometryDashChineseLayout>
 </template>
