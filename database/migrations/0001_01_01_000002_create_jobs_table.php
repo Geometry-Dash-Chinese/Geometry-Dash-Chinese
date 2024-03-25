@@ -5,9 +5,13 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
+	protected string $table = 'jobs';
+	protected string $table_batches = 'job_batches';
+	protected string $table_failed_jobs = 'failed_jobs';
+
 	public function up(): void
 	{
-		Schema::create('jobs', function (Blueprint $table) {
+		Schema::create($this->table, function (Blueprint $table) {
 			$table->id();
 			$table->string('queue')->index();
 			$table->longText('payload');
@@ -17,7 +21,7 @@ return new class extends Migration {
 			$table->unsignedInteger('created_at');
 		});
 
-		Schema::create('job_batches', function (Blueprint $table) {
+		Schema::create($this->table_batches, function (Blueprint $table) {
 			$table->string('id')->primary();
 			$table->string('name');
 			$table->integer('total_jobs');
@@ -30,7 +34,7 @@ return new class extends Migration {
 			$table->integer('finished_at')->nullable();
 		});
 
-		Schema::create('failed_jobs', function (Blueprint $table) {
+		Schema::create($this->table_failed_jobs, function (Blueprint $table) {
 			$table->id();
 			$table->string('uuid')->unique();
 			$table->text('connection');
@@ -43,8 +47,8 @@ return new class extends Migration {
 
 	public function down(): void
 	{
-		Schema::dropIfExists('jobs');
-		Schema::dropIfExists('job_batches');
-		Schema::dropIfExists('failed_jobs');
+		Schema::dropIfExists($this->table);
+		Schema::dropIfExists($this->table_batches);
+		Schema::dropIfExists($this->table_failed_jobs);
 	}
 };

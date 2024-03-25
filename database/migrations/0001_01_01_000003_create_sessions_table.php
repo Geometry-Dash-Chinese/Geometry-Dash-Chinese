@@ -5,9 +5,11 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
+	protected string $table = 'sessions';
+
 	public function up(): void
 	{
-		Schema::create('sessions', function (Blueprint $table) {
+		Schema::create($this->table, function (Blueprint $table) {
 			$table->string('id')->primary();
 			$table->foreignId('user_id')->nullable()->index();
 			$table->string('ip_address', 45)->nullable();
@@ -19,6 +21,6 @@ return new class extends Migration {
 
 	public function down(): void
 	{
-		Schema::dropIfExists('sessions');
+		Schema::dropIfExists($this->table);
 	}
 };
