@@ -13,5 +13,8 @@ Route::group([
 		'excluded_middleware' => ['web']
 	], function () {
 		Route::post('/{path}', [GeometryDashProxyController::class, 'proxy'])->name('proxy');
+		Route::post('/{path}', [GeometryDashProxyController::class, 'proxy'])
+			->where('path', '.*')
+			->name('proxy');
 	});
 });
