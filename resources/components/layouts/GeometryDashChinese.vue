@@ -173,7 +173,9 @@ const menus = computed(() => {
 								</n-layout-header>
 
 								<n-layout-content class="p-2 h-full">
-									<slot/>
+									<Transition appear mode="out-in" name="page">
+										<slot :key="$page.url"/>
+									</Transition>
 								</n-layout-content>
 
 								<n-layout-footer class="p-2">
@@ -205,6 +207,18 @@ const menus = computed(() => {
 		</n-dialog-provider>
 	</n-config-provider>
 </template>
+
+<style>
+.page-enter-active,
+.page-leave-active {
+	@apply transition-(all duration-300) ease-in-out;
+}
+
+.page-enter-from,
+.page-leave-to {
+	@apply opacity-0 blur;
+}
+</style>
 
 <style lang="scss">
 .logo {
