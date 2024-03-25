@@ -8,7 +8,7 @@ export default {
 
 <script lang="ts" setup>
 import { createFormItemAttribute } from '@/scripts/core/utils/form.ts'
-import { useForm, usePage } from '@inertiajs/vue3'
+import { useForm, usePage, router } from '@inertiajs/vue3'
 import { isNonNullish } from 'remeda'
 
 const page = usePage<{
@@ -49,7 +49,7 @@ const submit = () => {
 	</n-form>
 
 	<div class="text-center mt-5">
-		<n-button :href="page.props.links.AuthRegister" tag="a" text type="primary">
+		<n-button text type="primary" @click="router.visit(page.props.links.AuthRegister)">
 			没有账号? 去注册
 		</n-button>
 	</div>
