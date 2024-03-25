@@ -3,6 +3,7 @@ import GeometryDashChinese from '@/assets/GeometryDashChinese.png'
 import GeometryDashChineseServer from '@/assets/GeometryDashChineseServer.png'
 import GeometryDashProxy from '@/assets/GeometryDashProxy.png'
 import NewgroundsProxy from '@/assets/NewgroundsProxy.png'
+import ProgressWrapper from '@/components/Shared/ProgressWrapper.vue'
 import { useAppStore } from '@/scripts/core/stores.ts'
 import { Link, usePage } from '@inertiajs/vue3'
 import { LoginOutlined, LogoutOutlined, ProfileOutlined, UserOutlined } from '@vicons/antd'
@@ -157,6 +158,8 @@ const menus = computed(() => {
 				<n-message-provider>
 					<n-modal-provider>
 						<n-notification-provider>
+							<ProgressWrapper/>
+
 							<n-layout position="absolute">
 								<n-layout-header>
 									<slot name="header">
