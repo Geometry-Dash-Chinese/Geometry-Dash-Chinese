@@ -10,7 +10,7 @@ class ProxyService
 	public function instance(): PendingRequest
 	{
 		return Http::withOptions([
-			'proxy' => config('services.proxy.server')
+			'proxy' => config('GeometryDashChinese.proxy.server')
 		]);
 	}
 }

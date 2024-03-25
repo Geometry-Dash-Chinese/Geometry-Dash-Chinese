@@ -16,7 +16,7 @@ class GeometryDashProxyController extends Controller
 			->asForm()
 			->withUserAgent(null)
 			->retry(3)
-			->post(rtrim(config('services.GeometryDashProxy.base'), '/') . $uri, $data)
+			->post(rtrim(config('GeometryDashChinese.GeometryDashProxy.base'), '/') . $uri, $data)
 			->body();
 	}
 }
