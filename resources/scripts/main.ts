@@ -5,6 +5,7 @@ import { createPersistedState } from 'pinia-plugin-persistedstate'
 import { createApp, type DefineComponent, h } from 'vue'
 
 await createInertiaApp({
+	progress: false,
 	resolve: async name => {
 		const pages = import.meta.glob<DefineComponent>('@/pages/**/*.vue')
 		const loader = pages[`/resources/pages/${name}.vue`]
