@@ -6,7 +6,7 @@ use function Pest\Laravel\post;
 
 [$gameVersion, $binaryVersion] = explode(',', Versions::_22->value);
 
-test('get url', function () use ($gameVersion, $binaryVersion) {
+test('get url for save', function () use ($gameVersion, $binaryVersion) {
 	post(route('GeometryDashProxy.account.url.get'), [
 		'gameVersion' => $gameVersion,
 		'binaryVersion' => $binaryVersion,
