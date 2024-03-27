@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\GeometryDashGameAccountDataLoadRequest;
-use App\Http\Requests\GeometryDashGameAccountDataSaveRequest;
+use App\Http\Requests\GeometryDashAccountDataLoadRequest;
+use App\Http\Requests\GeometryDashAccountDataSaveRequest;
 use App\Http\Services\GeometryDashProxyAccountDataService;
 
 class GeometryDashProxyAccountDataController extends Controller
@@ -25,14 +25,14 @@ class GeometryDashProxyAccountDataController extends Controller
 		return route('GeometryDashProxy.account.data.base');
 	}
 
-	public function proxySave(GeometryDashGameAccountDataSaveRequest $request)
+	public function proxySave(GeometryDashAccountDataSaveRequest $request)
 	{
 		$data = $request->validated();
 
 		return $this->service->saveToOfficial($data);
 	}
 
-	public function proxyLoad(GeometryDashGameAccountDataLoadRequest $request)
+	public function proxyLoad(GeometryDashAccountDataLoadRequest $request)
 	{
 		$data = $request->validated();
 
