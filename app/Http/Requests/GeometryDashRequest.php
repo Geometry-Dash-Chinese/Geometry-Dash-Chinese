@@ -2,14 +2,14 @@
 
 namespace App\Http\Requests;
 
-use App\Enums\GeometryDash\AuthType;
-use App\Enums\GeometryDash\Secrets;
-use App\Enums\GeometryDash\Versions;
+use App\Enums\GeometryDashAuthType;
+use App\Enums\GeometryDashSecrets;
+use App\Enums\GeometryDashVersions;
 use Illuminate\Foundation\Http\FormRequest;
 
-class GeometryDashGameRequest extends FormRequest
+class GeometryDashRequest extends FormRequest
 {
-	public function withVersionRules(Versions $version): array
+	public function withVersionRules(GeometryDashVersions $version): array
 	{
 		[$gameVersion, $binaryVersion] = explode(',', $version->value);
 
@@ -25,7 +25,7 @@ class GeometryDashGameRequest extends FormRequest
 		];
 	}
 
-	public function withSecretRules(Secrets $secret): array
+	public function withSecretRules(GeometryDashSecrets $secret): array
 	{
 		return [
 			'secret' => [
@@ -49,7 +49,7 @@ class GeometryDashGameRequest extends FormRequest
 		];
 	}
 
-	public function withAuthRules(AuthType $authType): array
+	public function withAuthRules(GeometryDashAuthType $authType): array
 	{
 		return [
 			'accountID' => [
@@ -57,19 +57,19 @@ class GeometryDashGameRequest extends FormRequest
 				'integer'
 			],
 			...match ($authType) {
-				AuthType::PASSWORD => [
+				GeometryDashAuthType::PASSWORD => [
 					'password' => [
 						'required',
 						'string'
 					]
 				],
-				AuthType::GJP => [
+				GeometryDashAuthType::GJP => [
 					'gjp' => [
 						'required',
 						'string'
 					]
 				],
-				AuthType::GJP2 => [
+				GeometryDashAuthType::GJP2 => [
 					'gjp2' => [
 						'required',
 						'string'
