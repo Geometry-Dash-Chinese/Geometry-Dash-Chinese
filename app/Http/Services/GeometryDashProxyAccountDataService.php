@@ -25,19 +25,15 @@ class GeometryDashProxyAccountDataService
 
 	public function saveToOfficial(array $data): string
 	{
-		$base = $this->getBase($data['accountID'], AccountDataType::LOAD);
-
 		return $this->service->instance()
-			->post("$base/database/accounts/backupGJAccountNew.php", $data)
+			->post("{$this->getBase($data['accountID'], AccountDataType::SAVE)}/database/accounts/backupGJAccountNew.php", $data)
 			->body();
 	}
 
 	public function loadFromOfficial(array $data): string
 	{
-		$base = $this->getBase($data['accountID'], AccountDataType::LOAD);
-
 		return $this->service->instance()
-			->post("$base/database/accounts/syncGJAccountNew.php", $data)
+			->post("{$this->getBase($data['accountID'], AccountDataType::LOAD)}/database/accounts/syncGJAccountNew.php", $data)
 			->body();
 	}
 }
