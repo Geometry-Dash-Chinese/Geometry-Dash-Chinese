@@ -12,7 +12,7 @@ return new class extends Migration {
 	{
 		Schema::create($this->table, function (Blueprint $table) {
 			$table->id();
-			$table->foreignId(User::class);
+			$table->foreignIdFor(User::class);
 			$table->integer('game_account_id');
 			$table->timestamps();
 		});
