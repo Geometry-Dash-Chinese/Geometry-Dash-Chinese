@@ -7,7 +7,7 @@ use function Pest\Laravel\post;
 [$gameVersion, $binaryVersion] = explode(',', GeometryDashVersions::_22->value);
 
 test('get url for save', function () use ($gameVersion, $binaryVersion) {
-	post(route('GeometryDashProxy.account.url.get'), [
+	post(route('GeometryDashProxy.account.data.url.get'), [
 		'gameVersion' => $gameVersion,
 		'binaryVersion' => $binaryVersion,
 		'type' => GeometryDashAccountDataType::SAVE->value,
@@ -16,7 +16,7 @@ test('get url for save', function () use ($gameVersion, $binaryVersion) {
 });
 
 test('get url for load', function () use ($gameVersion, $binaryVersion) {
-	post(route('GeometryDashProxy.account.url.get'), [
+	post(route('GeometryDashProxy.account.data.url.get'), [
 		'gameVersion' => $gameVersion,
 		'binaryVersion' => $binaryVersion,
 		'type' => GeometryDashAccountDataType::LOAD->value,
