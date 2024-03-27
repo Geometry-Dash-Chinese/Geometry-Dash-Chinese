@@ -16,9 +16,9 @@ class GeometryDashProxyController extends Controller
 
 	public function proxy(Request $request)
 	{
-		$uri = $request->getRequestUri();
-		$data = $request->all();
-
-		return $this->service->sendPost($uri, $data);
+		return $this->service->sendPost(
+			$request->getRequestUri(),
+			$request->all()
+		);
 	}
 }
