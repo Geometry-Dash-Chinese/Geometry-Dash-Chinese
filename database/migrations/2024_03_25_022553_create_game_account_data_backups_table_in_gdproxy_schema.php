@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
-	protected string $table = 'gdproxy.account_data';
+	protected string $table = 'gdproxy.game_account_data_backups';
 
 	public function up(): void
 	{
