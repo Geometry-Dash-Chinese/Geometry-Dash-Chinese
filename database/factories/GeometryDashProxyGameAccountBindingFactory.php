@@ -2,12 +2,12 @@
 
 namespace Database\Factories;
 
-use App\Models\GeometryDashProxyAccountBinding;
+use App\Models\GeometryDashProxyGameAccountBinding;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class GeometryDashProxyAccountBindingFactory extends Factory
+class GeometryDashProxyGameAccountBindingFactory extends Factory
 {
-	protected $model = GeometryDashProxyAccountBinding::class;
+	protected $model = GeometryDashProxyGameAccountBinding::class;
 
 	public function definition(): array
 	{
