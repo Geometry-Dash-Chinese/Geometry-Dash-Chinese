@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Enums\GeometryDash;
+namespace App\Enums;
 
-enum AuthType
+enum GeometryDashAuthType
 {
 	case PASSWORD;
 	case GJP;

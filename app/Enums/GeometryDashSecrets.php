@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Enums\GeometryDash;
+namespace App\Enums;
 
-enum Secrets: string
+enum GeometryDashSecrets: string
 {
 	case COMMON = 'Wmfd2893gb7';
 	case ACCOUNT = 'Wmfv3899gc9';
