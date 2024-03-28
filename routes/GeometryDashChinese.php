@@ -1,8 +1,6 @@
 <?php
 
 use App\Http\Controllers\GeometryDashChineseAuthController;
-use App\Http\Controllers\GeometryDashChineseController;
-use App\Http\Controllers\GeometryDashChineseUserController;
 use Illuminate\Support\Facades\Route;
 
 Route::group([
@@ -16,10 +14,10 @@ Route::group([
 		'as' => 'auth.',
 		'middleware' => ['guest']
 	], function () {
-		Route::get('/login', [GeometryDashChineseAuthController::class, 'renderLogin'])->name('login');
+		Route::inertia('/login', 'GeometryDashChinese/Auth/Login')->name('login');
 		Route::post('/login', [GeometryDashChineseAuthController::class, 'login'])->name('login.api');
 
-		Route::get('/register', [GeometryDashChineseAuthController::class, 'renderRegister'])->name('register');
+		Route::inertia('/register', 'GeometryDashChinese/Auth/Register')->name('register');
 		Route::post('/register', [GeometryDashChineseAuthController::class, 'register'])->name('register.api');
 	});
 
@@ -29,5 +27,6 @@ Route::group([
 		'middleware' => ['auth']
 	], function () {
 		Route::inertia('/profile', 'GeometryDashChinese/User/Profile')->name('profile');
+		Route::get('/logout', [GeometryDashChineseAuthController::class, 'logout'])->name('logout.api');
 	});
 });
