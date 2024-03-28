@@ -12,6 +12,11 @@ class GeometryDashProxyGameAccountBinding extends Model
 
 	protected $table = 'gdproxy.game_account_bindings';
 
+	protected $fillable = [
+		'user_id',
+		'game_account_id'
+	];
+
 	public function data_backups(): HasMany
 	{
 		return $this->hasMany(GeometryDashProxyGameAccountDataBackup::class, 'account_id', 'game_account_id');
