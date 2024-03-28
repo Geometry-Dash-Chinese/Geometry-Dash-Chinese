@@ -9,7 +9,7 @@ Route::group([
 	'domain' => 'geometrydashchinese.com',
 	'as' => 'GeometryDashChinese.'
 ], function () {
-	Route::get('/', [GeometryDashChineseController::class, 'renderHome'])->name('home');
+	Route::inertia('/', 'GeometryDashChinese/Home')->name('home');
 
 	Route::group([
 		'prefix' => 'auth',
@@ -28,7 +28,6 @@ Route::group([
 		'as' => 'user.',
 		'middleware' => ['auth']
 	], function () {
-		Route::get('/profile', [GeometryDashChineseUserController::class, 'renderProfile'])->name('profile');
-		Route::delete('/', [GeometryDashChineseAuthController::class, 'logout'])->name('logout.api');
+		Route::inertia('/profile', 'GeometryDashChinese/User/Profile')->name('profile');
 	});
 });
