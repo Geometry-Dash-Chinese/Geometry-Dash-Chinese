@@ -9,18 +9,10 @@ class GeometryDashProxyService
 	protected string $base;
 
 	public function __construct(
-		protected ProxyService $proxy
+		protected ProxyService $proxyService
 	)
 	{
 		$this->base = rtrim(config('GeometryDashChinese.GeometryDashProxy.base'), '/');
-	}
-
-	public function instance(): PendingRequest
-	{
-		return $this->proxy->instance()
-			->asForm()
-			->withUserAgent(null)
-			->retry(3);
 	}
 
 	public function sendPost(string $uri, array $data): string
@@ -28,5 +20,13 @@ class GeometryDashProxyService
 		return $this->instance()
 			->post("$this->base$uri", $data)
 			->body();
+	}
+
+	public function instance(): PendingRequest
+	{
+		return $this->proxyService->instance()
+			->asForm()
+			->withUserAgent(null)
+			->retry(3);
 	}
 }
