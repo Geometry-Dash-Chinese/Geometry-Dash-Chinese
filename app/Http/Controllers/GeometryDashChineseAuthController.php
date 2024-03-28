@@ -2,38 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\GeometryDashChineseLoginRequest;
+use App\Http\Requests\GeometryDashChineseRegisterRequest;
 use App\Models\User;
-use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Validation\Rule;
-use Inertia\Inertia;
 
 class GeometryDashChineseAuthController extends Controller
 {
-	public function __construct()
-	{
-		app(GeometryDashChineseController::class);
-	}
 
-	public function renderLogin()
+	public function login(GeometryDashChineseLoginRequest $request)
 	{
-		return Inertia::render('GeometryDashChinese/Auth/Login');
-	}
+		$data = $request->validated();
 
-	public function login(Request $request)
-	{
-		$data = $request->validate([
-			'name' => [
-				'required',
-				Rule::exists(User::class)
-			],
-			'password' => [
-				'required'
-			]
-		]);
-
-		if (!Auth::attempt($data)) {
+		if (!Auth::attempt(Arr::only($data, ['name', 'password']), $data['remember'])) {
 			return back()
 				->withErrors([
 					'password' => '密码错误'
@@ -43,23 +26,9 @@ class GeometryDashChineseAuthController extends Controller
 		return Redirect::intended();
 	}
 
-	public function register(Request $request)
+	public function register(GeometryDashChineseRegisterRequest $request)
 	{
-		$data = $request->validate([
-			'name' => [
-				'required',
-				Rule::unique(User::class)
-			],
-			'email' => [
-				'required',
-				'email',
-				Rule::unique(User::class)
-			],
-			'password' => [
-				'required',
-				'confirmed'
-			]
-		]);
+		$data = $request->validated();
 
 		Auth::login(
 			User::create([
@@ -70,11 +39,6 @@ class GeometryDashChineseAuthController extends Controller
 		);
 
 		return Redirect::intended();
-	}
-
-	public function renderRegister()
-	{
-		return Inertia::render('GeometryDashChinese/Auth/Register');
 	}
 
 	public function logout()
