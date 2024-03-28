@@ -6,5 +6,12 @@ return [
 	],
 	'GeometryDashProxy' => [
 		'base' => env('GEOMETRY_DASH_PROXY_BASE', 'https://www.boomlings.com/database')
+	],
+	'command' => [
+		'start' => '!',
+		'argument' => [
+			'start' => ':',
+			'delimiter' => '='
+		]
 	]
 ];
