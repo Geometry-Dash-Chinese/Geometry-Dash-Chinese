@@ -3,32 +3,19 @@ import GeometryDashChinese from '@/assets/GeometryDashChinese.png'
 import GeometryDashChineseServer from '@/assets/GeometryDashChineseServer.png'
 import GeometryDashProxy from '@/assets/GeometryDashProxy.png'
 import NewgroundsProxy from '@/assets/NewgroundsProxy.png'
+import Menu from '@/components/Shared/Menu.vue'
 import ProgressWrapper from '@/components/Shared/ProgressWrapper.vue'
 import { useAppStore } from '@/scripts/core/stores.ts'
-import { Link, usePage } from '@inertiajs/vue3'
+import { createRouteMenu } from '@/scripts/core/utils/menu.ts'
+import type { SharedPageProps } from '@/types/inertia'
+import { usePage } from '@inertiajs/vue3'
 import { LoginOutlined, LogoutOutlined, ProfileOutlined, UserOutlined } from '@vicons/antd'
-import { breakpointsTailwind } from '@vueuse/core'
-import { darkTheme, dateZhCN, type MenuOption, NIcon, NImage, zhCN } from 'naive-ui'
-import { first } from 'remeda'
+import { darkTheme, dateZhCN, NIcon, NImage, zhCN } from 'naive-ui'
 
 useFavicon(GeometryDashChinese)
 
-const page = usePage<{
+const page = usePage<SharedPageProps & {
 	readonly user: Models.User | null
-	readonly current_route: string
-
-	readonly links: {
-		readonly GeometryDashChinese: string
-		readonly GeometryDashChineseServer: string
-		readonly GeometryDashProxy: string
-		readonly NewgroundsProxy: string
-
-		readonly AuthLogin: string
-		readonly AuthRegister: string
-
-		readonly UserProfile: string
-		readonly UserLogoutApi: string
-	}
 }>()
 
 const appStore = useAppStore()
@@ -41,21 +28,11 @@ const theme = computed(() => {
 	return null
 })
 
-const breakpoints = useBreakpoints(breakpointsTailwind)
-const isMobile = breakpoints.smaller('lg')
-
 const menus = computed(() => {
-	const result: [
-		brand: MenuOption[],
-		products: MenuOption[],
-		auth: MenuOption[]
-	] = [
+	return [
 		[
 			{
-				label: () => h(Link, {
-					href: page.props.links.GeometryDashChinese
-				}, () => 'Geometry Dash Chinese'),
-				key: 'GeometryDashChinese.home',
+				...createRouteMenu('Geometry Dash Chinese', 'GeometryDashChinese.home'),
 				icon: () => h(NImage, {
 					class: 'logo',
 					src: GeometryDashChinese
@@ -64,30 +41,21 @@ const menus = computed(() => {
 		],
 		[
 			{
-				label: () => h('a', {
-					href: page.props.links.GeometryDashChineseServer
-				}, 'Geometry Dash Chinese Server'),
-				key: 'GeometryDashChineseServer.home',
+				...createRouteMenu('Geometry Dash Chinese Server', 'GeometryDashChineseServer.home'),
 				icon: () => h(NImage, {
 					class: 'logo',
 					src: GeometryDashChineseServer
 				})
 			},
 			{
-				label: () => h('a', {
-					href: page.props.links.GeometryDashProxy
-				}, 'Geometry Dash Proxy'),
-				key: 'GeometryDashProxy.home',
+				...createRouteMenu('Geometry Dash Proxy', 'GeometryDashProxy.home'),
 				icon: () => h(NImage, {
 					class: 'logo',
 					src: GeometryDashProxy
 				})
 			},
 			{
-				label: () => h('a', {
-					href: page.props.links.NewgroundsProxy
-				}, 'Newgrounds Proxy'),
-				key: 'NewgroundsProxy.home',
+				...createRouteMenu('Newgrounds Proxy', 'NewgroundsProxy.home'),
 				icon: () => h(NImage, {
 					class: 'logo',
 					src: NewgroundsProxy
@@ -104,20 +72,13 @@ const menus = computed(() => {
 					}),
 					children: [
 						{
-							label: () => h(Link, {
-								href: page.props.links.UserProfile
-							}, () => '个人资料'),
-							key: 'GeometryDashChinese.user.profile',
+							...createRouteMenu('个人资料', 'GeometryDashChinese.user.profile'),
 							icon: () => h(NIcon, {
 								component: ProfileOutlined
 							})
 						},
 						{
-							label: () => h(Link, {
-								method: 'delete',
-								href: page.props.links.UserLogoutApi
-							}, () => '登出'),
-							key: 'GeometryDashChinese.user.logout.api',
+							...createRouteMenu('登出', 'GeometryDashChinese.user.logout.api'),
 							icon: () => h(NIcon, {
 								component: LogoutOutlined
 							})
@@ -125,29 +86,13 @@ const menus = computed(() => {
 					]
 				} :
 				{
-					label: () => h(Link, {
-						href: page.props.links.AuthLogin
-					}, () => '登录'),
-					key: 'GeometryDashChinese.auth.login',
+					...createRouteMenu('登录', 'GeometryDashChinese.auth.login'),
 					icon: () => h(NIcon, {
 						component: LoginOutlined
 					})
 				}
 		]
 	]
-
-	if (isMobile.value) {
-		const menus = result.flat()
-
-		const mobileResult = {
-			...first(menus),
-			children: menus.slice(1)
-		}
-
-		return [[mobileResult]]
-	}
-
-	return result
 })
 </script>
 
@@ -163,12 +108,7 @@ const menus = computed(() => {
 							<n-layout position="absolute">
 								<n-layout-header>
 									<slot name="header">
-										<n-flex align="center" justify="space-between">
-											<n-menu v-for="items in menus"
-													:mode="(isMobile ? 'vertical' : 'horizontal')"
-													:options="items" :value="page.props.current_route"
-													class="w-full sm:!w-fit"/>
-										</n-flex>
+										<Menu :menus="menus"/>
 									</slot>
 								</n-layout-header>
 

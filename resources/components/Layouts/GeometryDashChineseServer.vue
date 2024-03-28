@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import GeometryDashChineseLayout from '@/components/layouts/GeometryDashChinese.vue'
+import GeometryDashChineseLayout from '@/components/Layouts/GeometryDashChinese.vue'
 </script>
 
 <template>

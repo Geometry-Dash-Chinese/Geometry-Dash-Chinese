@@ -1,5 +1,5 @@
 <script lang="ts">
-import GeometryDashChineseServerLayout from '@/components/layouts/GeometryDashChineseServer.vue'
+import GeometryDashChineseServerLayout from '@/components/Layouts/GeometryDashChineseServer.vue'
 
 export default {
 	layout: GeometryDashChineseServerLayout

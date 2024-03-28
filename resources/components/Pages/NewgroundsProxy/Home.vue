@@ -1,5 +1,5 @@
 <script lang="ts">
-import NewgroundsProxyLayout from '@/components/layouts/NewgroundsProxy.vue'
+import NewgroundsProxyLayout from '@/components/Layouts/NewgroundsProxy.vue'
 
 export default {
 	layout: NewgroundsProxyLayout

@@ -1,5 +1,5 @@
 <script lang="ts">
-import GeometryDashProxyLayout from '@/components/layouts/GeometryDashProxy.vue'
+import GeometryDashProxyLayout from '@/components/Layouts/GeometryDashProxy.vue'
 
 export default {
 	layout: GeometryDashProxyLayout

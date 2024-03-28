@@ -1,5 +1,5 @@
 <script lang="ts">
-import GeometryDashChineseAuthLayout from '@/components/layouts/GeometryDashChinese/Auth.vue'
+import GeometryDashChineseAuthLayout from '@/components/Layouts/GeometryDashChinese/Auth.vue'
 
 export default {
 	layout: GeometryDashChineseAuthLayout
@@ -8,19 +8,14 @@ export default {
 
 <script lang="ts" setup>
 import { createFormItemAttribute } from '@/scripts/core/utils/form.ts'
-import { useForm, usePage, router } from '@inertiajs/vue3'
+import { useForm, router } from '@inertiajs/vue3'
 import { isNonNullish } from 'remeda'
-
-const page = usePage<{
-	readonly links: {
-		readonly AuthLogin: string
-		readonly AuthRegister: string
-	}
-}>()
+import { route } from 'ziggy-js'
 
 const form = useForm({
 	name: null,
-	password: null
+	password: null,
+	remember: false
 })
 
 const valid = computed(() => {
@@ -28,7 +23,7 @@ const valid = computed(() => {
 })
 
 const submit = () => {
-	form.post(page.props.links.AuthLogin)
+	form.post(route('GeometryDashChinese.auth.login.api'))
 }
 </script>
 
@@ -43,13 +38,19 @@ const submit = () => {
 					 type="password"/>
 		</n-form-item>
 
+		<n-form-item :show-label="false" v-bind="createFormItemAttribute(form, 'remember')">
+			<n-checkbox v-model:checked="form.remember">
+				记住我
+			</n-checkbox>
+		</n-form-item>
+
 		<n-form-item :show-feedback="false" :show-label="false">
 			<n-button :disabled="!valid" class="w-1/2 mx-auto" @click="submit">登录</n-button>
 		</n-form-item>
 	</n-form>
 
 	<div class="text-center mt-5">
-		<n-button text type="primary" @click="router.visit(page.props.links.AuthRegister)">
+		<n-button text type="primary" @click="router.visit(route('GeometryDashChinese.auth.register'))">
 			没有账号? 去注册
 		</n-button>
 	</div>

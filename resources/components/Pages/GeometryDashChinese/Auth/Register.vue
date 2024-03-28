@@ -1,5 +1,5 @@
 <script lang="ts">
-import GeometryDashChineseAuthLayout from '@/components/layouts/GeometryDashChinese/Auth.vue'
+import GeometryDashChineseAuthLayout from '@/components/Layouts/GeometryDashChinese/Auth.vue'
 
 export default {
 	layout: GeometryDashChineseAuthLayout
@@ -10,13 +10,7 @@ export default {
 import { createFormItemAttribute } from '@/scripts/core/utils/form.ts'
 import { useForm, usePage, router } from '@inertiajs/vue3'
 import { isNonNullish } from 'remeda'
-
-const page = usePage<{
-	readonly links: {
-		readonly AuthLogin: string
-		readonly AuthRegister: string
-	}
-}>()
+import { route } from 'ziggy-js'
 
 const form = useForm({
 	name: null,
@@ -30,7 +24,7 @@ const valid = computed(() => {
 })
 
 const submit = () => {
-	form.post(page.props.links.AuthRegister)
+	form.post(route('GeometryDashChinese.auth.register.api'))
 }
 </script>
 
@@ -60,7 +54,7 @@ const submit = () => {
 	</n-form>
 
 	<div class="text-center mt-5">
-		<n-button text type="primary" @click="router.visit(page.props.links.AuthLogin)">
+		<n-button text type="primary" @click="router.visit(route('GeometryDashChinese.auth.login'))">
 			已有账号? 去登录
 		</n-button>
 	</div>
