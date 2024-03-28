@@ -8,8 +8,8 @@ import { ZiggyVue } from 'ziggy-js'
 await createInertiaApp({
 	progress: false,
 	resolve: async name => {
-		const pages = import.meta.glob<DefineComponent>('@/pages/**/*.vue')
-		const loader = pages[`/resources/pages/${name}.vue`]
+		const pages = import.meta.glob<DefineComponent>('@/components/Pages/**/*.vue')
+		const loader = pages[`/resources/components/Pages/${name}.vue`]
 
 		if (!isDefined(loader)) {
 			throw new Error(`页面 ${name} 不存在`)
