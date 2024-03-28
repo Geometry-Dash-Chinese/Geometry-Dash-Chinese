@@ -4,7 +4,7 @@
 		"Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
 		"This file is @generated automatically"
 	],
-	"content-hash": "7fb59bbae6740657c06146ea3f1a118c",
+	"content-hash": "0dc5f1059aa45afb818513383587eaf9",
 	"packages": [
 		{
 			"name": "brick/math",
@@ -4020,6 +4020,71 @@
 			"time": "2024-01-11T13:33:27+00:00"
 		},
 		{
+			"name": "spomky-labs/base64url",
+			"version": "v2.0.4",
+			"source": {
+				"type": "git",
+				"url": "https://github.com/Spomky-Labs/base64url.git",
+				"reference": "7752ce931ec285da4ed1f4c5aa27e45e097be61d"
+			},
+			"dist": {
+				"type": "zip",
+				"url": "https://api.github.com/repos/Spomky-Labs/base64url/zipball/7752ce931ec285da4ed1f4c5aa27e45e097be61d",
+				"reference": "7752ce931ec285da4ed1f4c5aa27e45e097be61d",
+				"shasum": ""
+			},
+			"require": {
+				"php": ">=7.1"
+			},
+			"require-dev": {
+				"phpstan/extension-installer": "^1.0",
+				"phpstan/phpstan": "^0.11|^0.12",
+				"phpstan/phpstan-beberlei-assert": "^0.11|^0.12",
+				"phpstan/phpstan-deprecation-rules": "^0.11|^0.12",
+				"phpstan/phpstan-phpunit": "^0.11|^0.12",
+				"phpstan/phpstan-strict-rules": "^0.11|^0.12"
+			},
+			"type": "library",
+			"autoload": {
+				"psr-4": {
+					"Base64Url\\": "src/"
+				}
+			},
+			"notification-url": "https://packagist.org/downloads/",
+			"license": [
+				"MIT"
+			],
+			"authors": [
+				{
+					"name": "Florent Morselli",
+					"homepage": "https://github.com/Spomky-Labs/base64url/contributors"
+				}
+			],
+			"description": "Base 64 URL Safe Encoding/Decoding PHP Library",
+			"homepage": "https://github.com/Spomky-Labs/base64url",
+			"keywords": [
+				"base64",
+				"rfc4648",
+				"safe",
+				"url"
+			],
+			"support": {
+				"issues": "https://github.com/Spomky-Labs/base64url/issues",
+				"source": "https://github.com/Spomky-Labs/base64url/tree/v2.0.4"
+			},
+			"funding": [
+				{
+					"url": "https://github.com/Spomky",
+					"type": "github"
+				},
+				{
+					"url": "https://www.patreon.com/FlorentMorselli",
+					"type": "patreon"
+				}
+			],
+			"time": "2020-11-03T09:10:25+00:00"
+		},
+		{
 			"name": "symfony/clock",
 			"version": "v7.0.5",
 			"source": {
@@ -6638,6 +6703,74 @@
 				}
 			],
 			"time": "2024-01-23T15:02:46+00:00"
+		},
+		{
+			"name": "tightenco/ziggy",
+			"version": "v2.1.0",
+			"source": {
+				"type": "git",
+				"url": "https://github.com/tighten/ziggy.git",
+				"reference": "f2ce6091078109f434e295a17adfac7378257ace"
+			},
+			"dist": {
+				"type": "zip",
+				"url": "https://api.github.com/repos/tighten/ziggy/zipball/f2ce6091078109f434e295a17adfac7378257ace",
+				"reference": "f2ce6091078109f434e295a17adfac7378257ace",
+				"shasum": ""
+			},
+			"require": {
+				"ext-json": "*",
+				"laravel/framework": ">=9.0",
+				"php": ">=8.1"
+			},
+			"require-dev": {
+				"orchestra/testbench": "^7.0 || ^8.0 || ^9.0",
+				"phpunit/phpunit": "^9.5 || ^10.3"
+			},
+			"type": "library",
+			"extra": {
+				"laravel": {
+					"providers": [
+						"Tighten\\Ziggy\\ZiggyServiceProvider"
+					]
+				}
+			},
+			"autoload": {
+				"psr-4": {
+					"Tighten\\Ziggy\\": "src/"
+				}
+			},
+			"notification-url": "https://packagist.org/downloads/",
+			"license": [
+				"MIT"
+			],
+			"authors": [
+				{
+					"name": "Daniel Coulbourne",
+					"email": "daniel@tighten.co"
+				},
+				{
+					"name": "Jake Bathman",
+					"email": "jake@tighten.co"
+				},
+				{
+					"name": "Jacob Baker-Kretzmar",
+					"email": "jacob@tighten.co"
+				}
+			],
+			"description": "Use your Laravel named routes in JavaScript.",
+			"homepage": "https://github.com/tighten/ziggy",
+			"keywords": [
+				"Ziggy",
+				"javascript",
+				"laravel",
+				"routes"
+			],
+			"support": {
+				"issues": "https://github.com/tighten/ziggy/issues",
+				"source": "https://github.com/tighten/ziggy/tree/v2.1.0"
+			},
+			"time": "2024-03-26T16:04:23+00:00"
 		},
 		{
 			"name": "tijsverkoyen/css-to-inline-styles",
@@ -11335,7 +11468,7 @@
 	"prefer-stable": true,
 	"prefer-lowest": false,
 	"platform": {
-		"php": "^8.2"
+		"php": "^8.3"
 	},
 	"platform-dev": [],
 	"plugin-api-version": "2.6.0"

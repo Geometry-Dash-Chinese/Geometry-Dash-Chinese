@@ -1,13 +1,15 @@
 {
 	"type": "project",
 	"require": {
-		"php": "^8.2",
+		"php": "^8.3",
 		"inertiajs/inertia-laravel": "^1.0",
 		"laravel/framework": "^11.0",
 		"laravel/octane": "^2.3",
 		"laravel/tinker": "^2.9",
 		"spiral/roadrunner-cli": "^2.6",
-		"spiral/roadrunner-http": "^3.4"
+		"spiral/roadrunner-http": "^3.4",
+		"spomky-labs/base64url": "^2.0",
+		"tightenco/ziggy": "^2.1"
 	},
 	"require-dev": {
 		"fakerphp/faker": "^1.23",
