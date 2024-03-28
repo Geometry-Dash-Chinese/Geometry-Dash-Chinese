@@ -3,6 +3,7 @@ import 'virtual:uno.css'
 import { createInertiaApp } from '@inertiajs/vue3'
 import { createPersistedState } from 'pinia-plugin-persistedstate'
 import { createApp, type DefineComponent, h } from 'vue'
+import { ZiggyVue } from 'ziggy-js'
 
 await createInertiaApp({
 	progress: false,
@@ -32,6 +33,8 @@ await createInertiaApp({
 
 		app.use(pinia)
 		app.use(plugin)
+		app.use(ZiggyVue)
+
 		app.mount(el)
 	}
 })
